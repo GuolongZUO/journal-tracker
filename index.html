@@ -9,36 +9,34 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f7;color:#1d1d1f;display:flex;height:100vh;overflow:hidden}
 button{cursor:pointer;font-family:inherit}
 #sidebar{width:210px;flex-shrink:0;background:#fff;border-right:1px solid #e5e5e5;display:flex;flex-direction:column;overflow:hidden;transition:width .2s}
-#sidebar.closed{width:0}
+#sidebar.closed{width:0;overflow:hidden}
 #sb-head{padding:14px 14px 10px;border-bottom:1px solid #e5e5e5;flex-shrink:0}
 #sb-head h3{font-size:11px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
 .sb-btns{display:flex;gap:6px}
 .sb-btns button{font-size:11px;padding:3px 8px;border-radius:6px;border:1px solid #ddd;background:transparent;color:#555}
 .sb-btns button:hover{background:#f0f0f0}
 #sb-list{flex:1;overflow-y:auto;padding:8px 0}
-.sb-group{margin-bottom:4px}
-.sb-group-header{padding:6px 14px 4px;font-size:10px;font-weight:600;color:#bbb;text-transform:uppercase;letter-spacing:.08em}
+.sb-group-header{padding:8px 14px 3px;font-size:10px;font-weight:600;color:#bbb;text-transform:uppercase;letter-spacing:.08em}
 .sb-item{display:flex;align-items:center;gap:8px;padding:5px 14px;cursor:pointer;user-select:none}
 .sb-item:hover{background:#f7f7f7}
-.sb-check{width:13px;height:13px;border-radius:3px;flex-shrink:0;border:1.5px solid #bbb;transition:all .15s}
+.sb-check{width:13px;height:13px;border-radius:3px;flex-shrink:0;border:1.5px solid #ccc;transition:all .15s}
 .sb-check.on{border-color:transparent}
-.sb-label{flex:1;font-size:12px;color:#333;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sb-label{flex:1;font-size:12px;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sb-count{font-size:11px;color:#bbb;flex-shrink:0}
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
-#topbar{background:#fff;border-bottom:1px solid #e5e5e5;padding:11px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+#topbar{background:#fff;border-bottom:1px solid #e5e5e5;padding:11px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
 #menu-btn{font-size:15px;padding:5px 9px;border:1px solid #ddd;border-radius:7px;background:transparent;color:#555}
-#menu-btn:hover{background:#f0f0f0}
 #app-title{font-size:15px;font-weight:600;color:#1d1d1f;white-space:nowrap}
-#updated{font-size:11px;color:#bbb;margin-left:8px}
+#updated{font-size:11px;color:#bbb;margin-left:6px}
 .spacer{flex:1}
 .day-btns{display:flex;gap:5px}
 .day-btn{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid #ddd;background:transparent;color:#555;transition:all .15s}
 .day-btn.active{background:#0071e3;color:#fff;border-color:#0071e3;font-weight:500}
-#search-box{font-size:12px;padding:6px 12px;border-radius:20px;border:1px solid #ddd;background:#f5f5f7;width:190px;outline:none}
+#search-box{font-size:12px;padding:6px 12px;border-radius:20px;border:1px solid #ddd;background:#f5f5f7;width:180px;outline:none}
 #search-box:focus{border-color:#0071e3;background:#fff}
-#refresh-btn{font-size:12px;padding:6px 16px;border-radius:20px;border:none;background:#0071e3;color:#fff;font-weight:500}
+#refresh-btn{font-size:12px;padding:6px 16px;border-radius:20px;border:none;background:#0071e3;color:#fff;font-weight:500;white-space:nowrap}
 #refresh-btn:disabled{opacity:.5;cursor:default}
-#status{padding:9px 16px;background:#f0f4ff;border-bottom:1px solid #dce4ff;font-size:12px;color:#3a5ccc;display:none;align-items:center;gap:8px}
+#status{padding:9px 16px;border-bottom:1px solid #e0e8ff;font-size:12px;display:none;align-items:center;gap:8px;background:#f0f4ff;color:#3a5ccc;flex-wrap:wrap}
 #status.err{background:#fff0f0;border-color:#ffd0d0;color:#c0392b}
 .spinner{width:13px;height:13px;border:2px solid #b0c0ff;border-top-color:#3a5ccc;border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -46,13 +44,14 @@ button{cursor:pointer;font-family:inherit}
 #list-meta{font-size:12px;color:#aaa;margin-bottom:11px}
 .article-card{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:13px 15px;margin-bottom:8px}
 .article-card:hover{border-color:#b0c8f0}
-.article-title{font-size:13px;font-weight:500;color:#1d1d1f;line-height:1.45;margin-bottom:7px;display:block;text-decoration:none}
+.article-title{font-size:13px;font-weight:500;color:#1d1d1f;line-height:1.45;margin-bottom:8px;display:block;text-decoration:none}
 .article-title:hover{color:#0071e3}
-.article-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.article-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .journal-badge{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:500;white-space:nowrap}
+.rss-dot{font-size:11px;color:#f90;flex-shrink:0;title:"实时 RSS"}
 .article-authors{font-size:11px;color:#999;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .article-date{font-size:11px;color:#bbb;flex-shrink:0;margin-left:auto}
-#empty{display:none;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;text-align:center}
+#empty{display:none;flex-direction:column;align-items:center;padding:80px 20px;text-align:center}
 #empty .icon{font-size:36px;margin-bottom:14px}
 #empty p{font-size:14px;color:#555;margin-bottom:6px}
 #empty small{font-size:12px;color:#aaa}
@@ -88,206 +87,309 @@ button{cursor:pointer;font-family:inherit}
   <div id="list-area">
     <div id="list-meta"></div>
     <div id="article-list"></div>
-    <div id="empty"><div class="icon">📭</div><p>该时间范围内暂无新文章</p><small>可切换到「近3天」或「近7天」查看更多</small></div>
+    <div id="empty">
+      <div class="icon">📭</div>
+      <p>该时间范围内暂无新文章</p>
+      <small>可切换到「近3天」或「近7天」查看更多</small>
+    </div>
   </div>
 </div>
 
 <script>
-// ── 分组配置 ──────────────────────────────────────────
-// key: 分组名  c: badge文字色  bg: badge背景色
+// ── 分组样式 ───────────────────────────────────────────
 const GROUP_CFG = {
-  "⭐ 顶刊":   { c:"#185FA5", bg:"#E6F1FB" },
+  "⭐ 顶刊":    { c:"#185FA5", bg:"#E6F1FB" },
   "📖 Reviews": { c:"#0F6E56", bg:"#E1F5EE" },
-  "📄 其他":   { c:"#634AB7", bg:"#EEEDFE" },
+  "📄 其他":    { c:"#634AB7", bg:"#EEEDFE" },
 };
+const GROUPS = Object.keys(GROUP_CFG);
 
-// PubMed source字段（小写）→ { group, displayName }
-// PubMed source 通常是 MEDLINE 缩写，少数用全称，这里两个都写以防万一
-const JOURNAL_MAP = {
-  // ── 顶刊 ──
-  "nature":                        { g:"⭐ 顶刊", n:"Nature" },
-  "science":                       { g:"⭐ 顶刊", n:"Science" },
-  "cell":                          { g:"⭐ 顶刊", n:"Cell" },
-  "n engl j med":                  { g:"⭐ 顶刊", n:"NEJM" },
-  "new england journal of medicine":{ g:"⭐ 顶刊", n:"NEJM" },
-  "lancet":                        { g:"⭐ 顶刊", n:"Lancet" },
-  "nat med":                       { g:"⭐ 顶刊", n:"Nature Medicine" },
-  "nature medicine":               { g:"⭐ 顶刊", n:"Nature Medicine" },
-  "nat biotechnol":                { g:"⭐ 顶刊", n:"Nature Biotechnology" },
-  "nature biotechnology":          { g:"⭐ 顶刊", n:"Nature Biotechnology" },
-  "nat genet":                     { g:"⭐ 顶刊", n:"Nature Genetics" },
-  "nature genetics":               { g:"⭐ 顶刊", n:"Nature Genetics" },
-  "nat methods":                   { g:"⭐ 顶刊", n:"Nature Methods" },
-  "nature methods":                { g:"⭐ 顶刊", n:"Nature Methods" },
-  "nat cell biol":                 { g:"⭐ 顶刊", n:"Nature Cell Biology" },
-  "nature cell biology":           { g:"⭐ 顶刊", n:"Nature Cell Biology" },
-  "nat neurosci":                  { g:"⭐ 顶刊", n:"Nature Neuroscience" },
-  "nature neuroscience":           { g:"⭐ 顶刊", n:"Nature Neuroscience" },
-  "nat immunol":                   { g:"⭐ 顶刊", n:"Nature Immunology" },
-  "nature immunology":             { g:"⭐ 顶刊", n:"Nature Immunology" },
-  "cell stem cell":                { g:"⭐ 顶刊", n:"Cell Stem Cell" },
-  "cell metab":                    { g:"⭐ 顶刊", n:"Cell Metabolism" },
-  "cell metabolism":               { g:"⭐ 顶刊", n:"Cell Metabolism" },
-  "cancer cell":                   { g:"⭐ 顶刊", n:"Cancer Cell" },
-  "immunity":                      { g:"⭐ 顶刊", n:"Immunity" },
-  "neuron":                        { g:"⭐ 顶刊", n:"Neuron" },
-  "natl sci rev":                  { g:"⭐ 顶刊", n:"National Science Review" },
-  "national science review":       { g:"⭐ 顶刊", n:"National Science Review" },
-
-  // ── Reviews ──
-  "nat rev drug discov":           { g:"📖 Reviews", n:"Nat Rev Drug Discovery" },
-  "nature reviews drug discovery": { g:"📖 Reviews", n:"Nat Rev Drug Discovery" },
-  "nat rev mol cell biol":         { g:"📖 Reviews", n:"Nat Rev Mol Cell Biol" },
-  "nat rev cancer":                { g:"📖 Reviews", n:"Nat Rev Cancer" },
-  "nature reviews cancer":         { g:"📖 Reviews", n:"Nat Rev Cancer" },
-  "nat rev immunol":               { g:"📖 Reviews", n:"Nat Rev Immunology" },
-  "nature reviews immunology":     { g:"📖 Reviews", n:"Nat Rev Immunology" },
-  "nat rev genet":                 { g:"📖 Reviews", n:"Nat Rev Genetics" },
-  "nature reviews genetics":       { g:"📖 Reviews", n:"Nat Rev Genetics" },
-  "nat rev neurol":                { g:"📖 Reviews", n:"Nat Rev Neurology" },
-  "nature reviews neurology":      { g:"📖 Reviews", n:"Nat Rev Neurology" },
-  "nat rev neurosci":              { g:"📖 Reviews", n:"Nat Rev Neuroscience" },
-  "nature reviews neuroscience":   { g:"📖 Reviews", n:"Nat Rev Neuroscience" },
-  "nat rev endocrinol":            { g:"📖 Reviews", n:"Nat Rev Endocrinology" },
-  "nature reviews endocrinology":  { g:"📖 Reviews", n:"Nat Rev Endocrinology" },
-
-  // ── 其他 ──
-  "mol cell":                      { g:"📄 其他", n:"Molecular Cell" },
-  "molecular cell":                { g:"📄 其他", n:"Molecular Cell" },
-  "sci transl med":                { g:"📄 其他", n:"Sci Transl Med" },
-  "science translational medicine":{ g:"📄 其他", n:"Sci Transl Med" },
-  "nat commun":                    { g:"📄 其他", n:"Nature Communications" },
-  "nature communications":         { g:"📄 其他", n:"Nature Communications" },
-  "nat protoc":                    { g:"📄 其他", n:"Nature Protocols" },
-  "nature protocols":              { g:"📄 其他", n:"Nature Protocols" },
-  "nucleic acids res":             { g:"📄 其他", n:"Nucleic Acids Res" },
-  "nucleic acids research":        { g:"📄 其他", n:"Nucleic Acids Res" },
-  "sci adv":                       { g:"📄 其他", n:"Science Advances" },
-  "science advances":              { g:"📄 其他", n:"Science Advances" },
-  "sci signal":                    { g:"📄 其他", n:"Science Signaling" },
-  "science signaling":             { g:"📄 其他", n:"Science Signaling" },
-  "sci immunol":                   { g:"📄 其他", n:"Science Immunology" },
-  "science immunology":            { g:"📄 其他", n:"Science Immunology" },
-  "cell host microbe":             { g:"📄 其他", n:"Cell Host & Microbe" },
-  "cell host & microbe":           { g:"📄 其他", n:"Cell Host & Microbe" },
-  "cell res":                      { g:"📄 其他", n:"Cell Research" },
-  "cell research":                 { g:"📄 其他", n:"Cell Research" },
-  "circulation":                   { g:"📄 其他", n:"Circulation" },
-  "blood":                         { g:"📄 其他", n:"Blood" },
-  "biol psychiatry":               { g:"📄 其他", n:"Biological Psychiatry" },
-  "biological psychiatry":         { g:"📄 其他", n:"Biological Psychiatry" },
-  "proc natl acad sci u s a":      { g:"📄 其他", n:"PNAS" },
-  "elife":                         { g:"📄 其他", n:"eLife" },
-  "dev cell":                      { g:"📄 其他", n:"Developmental Cell" },
-  "developmental cell":            { g:"📄 其他", n:"Developmental Cell" },
-  "curr biol":                     { g:"📄 其他", n:"Current Biology" },
-  "current biology":               { g:"📄 其他", n:"Current Biology" },
-  "cell rep":                      { g:"📄 其他", n:"Cell Reports" },
-  "cell reports":                  { g:"📄 其他", n:"Cell Reports" },
-  "cell death dis":                { g:"📄 其他", n:"Cell Death & Disease" },
-  "cell death differ":             { g:"📄 其他", n:"Cell Death & Differ." },
-  "mov disord":                    { g:"📄 其他", n:"Movement Disorders" },
-  "movement disorders":            { g:"📄 其他", n:"Movement Disorders" },
-  "brief bioinform":               { g:"📄 其他", n:"Brief. Bioinformatics" },
-  "briefings in bioinformatics":   { g:"📄 其他", n:"Brief. Bioinformatics" },
-  "schizophr bull":                { g:"📄 其他", n:"Schizophrenia Bulletin" },
-  "schizophrenia bulletin":        { g:"📄 其他", n:"Schizophrenia Bulletin" },
-  "neuroimage":                    { g:"📄 其他", n:"Neuroimage" },
-  "faseb j":                       { g:"📄 其他", n:"FASEB Journal" },
-  "j neurosci":                    { g:"📄 其他", n:"J. Neuroscience" },
-  "journal of neuroscience":       { g:"📄 其他", n:"J. Neuroscience" },
-  "glia":                          { g:"📄 其他", n:"Glia" },
-  "development":                   { g:"📄 其他", n:"Development" },
-  "hum brain mapp":                { g:"📄 其他", n:"Human Brain Mapping" },
-  "human brain mapping":           { g:"📄 其他", n:"Human Brain Mapping" },
-  "star protoc":                   { g:"📄 其他", n:"STAR Protocols" },
-  "cereb cortex":                  { g:"📄 其他", n:"Cerebral Cortex" },
-  "cerebral cortex":               { g:"📄 其他", n:"Cerebral Cortex" },
-  "j alzheimers dis":              { g:"📄 其他", n:"J. Alzheimer's Disease" },
-  "j biol chem":                   { g:"📄 其他", n:"J. Biological Chemistry" },
-  "journal of biological chemistry":{ g:"📄 其他", n:"J. Biological Chemistry" },
-};
-
-// PubMed 查询词（用于 esearch）
-const SEARCH_QUERIES = [
-  '"Nature"[Journal]',
-  '"Science"[Journal]',
-  '"Cell"[Journal]',
-  '"N Engl J Med"[Journal]',
-  '"Lancet"[Journal]',
-  '"Nat Med"[Journal]',
-  '"Nat Biotechnol"[Journal]',
-  '"Nat Genet"[Journal]',
-  '"Nat Methods"[Journal]',
-  '"Nat Cell Biol"[Journal]',
-  '"Nat Neurosci"[Journal]',
-  '"Nat Immunol"[Journal]',
-  '"Cell Stem Cell"[Journal]',
-  '"Cell Metab"[Journal]',
-  '"Cancer Cell"[Journal]',
-  '"Immunity"[Journal]',
-  '"Neuron"[Journal]',
-  '"Natl Sci Rev"[Journal]',
-  '"Nat Rev Drug Discov"[Journal]',
-  '"Nat Rev Mol Cell Biol"[Journal]',
-  '"Nat Rev Cancer"[Journal]',
-  '"Nat Rev Immunol"[Journal]',
-  '"Nat Rev Genet"[Journal]',
-  '"Nat Rev Neurol"[Journal]',
-  '"Nat Rev Neurosci"[Journal]',
-  '"Nat Rev Endocrinol"[Journal]',
-  '"Mol Cell"[Journal]',
-  '"Sci Transl Med"[Journal]',
-  '"Nat Commun"[Journal]',
-  '"Nat Protoc"[Journal]',
-  '"Nucleic Acids Res"[Journal]',
-  '"Sci Adv"[Journal]',
-  '"Sci Signal"[Journal]',
-  '"Sci Immunol"[Journal]',
-  '"Cell Host Microbe"[Journal]',
-  '"Cell Res"[Journal]',
-  '"Circulation"[Journal]',
-  '"Blood"[Journal]',
-  '"Biol Psychiatry"[Journal]',
-  '"Proc Natl Acad Sci U S A"[Journal]',
-  '"Elife"[Journal]',
-  '"Dev Cell"[Journal]',
-  '"Curr Biol"[Journal]',
-  '"Cell Rep"[Journal]',
-  '"Cell Death Dis"[Journal]',
-  '"Cell Death Differ"[Journal]',
-  '"Mov Disord"[Journal]',
-  '"Brief Bioinform"[Journal]',
-  '"Schizophr Bull"[Journal]',
-  '"Neuroimage"[Journal]',
-  '"FASEB J"[Journal]',
-  '"J Neurosci"[Journal]',
-  '"Glia"[Journal]',
-  '"Development"[Journal]',
-  '"Hum Brain Mapp"[Journal]',
-  '"STAR Protoc"[Journal]',
-  '"Cereb Cortex"[Journal]',
-  '"J Alzheimers Dis"[Journal]',
-  '"J Biol Chem"[Journal]',
+// ── 顶刊 RSS 配置 ──────────────────────────────────────
+const RSS_JOURNALS = [
+  { n:"Nature",               g:"⭐ 顶刊", rss:"https://www.nature.com/nature.rss" },
+  { n:"Science",              g:"⭐ 顶刊", rss:"https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science" },
+  { n:"Cell",                 g:"⭐ 顶刊", rss:"https://www.cell.com/cell/current.rss" },
+  { n:"NEJM",                 g:"⭐ 顶刊", rss:"https://www.nejm.org/action/showFeed?jc=nejmoa&type=etoc&feed=rss" },
+  { n:"Lancet",               g:"⭐ 顶刊", rss:"https://www.thelancet.com/rssfeed/lancet_current.xml" },
+  { n:"Nature Medicine",      g:"⭐ 顶刊", rss:"https://www.nature.com/nm.rss" },
+  { n:"Nature Biotechnology", g:"⭐ 顶刊", rss:"https://www.nature.com/nbt.rss" },
+  { n:"Nature Genetics",      g:"⭐ 顶刊", rss:"https://www.nature.com/ng.rss" },
+  { n:"Nature Methods",       g:"⭐ 顶刊", rss:"https://www.nature.com/nmeth.rss" },
+  { n:"Nature Cell Biology",  g:"⭐ 顶刊", rss:"https://www.nature.com/ncb.rss" },
+  { n:"Nature Neuroscience",  g:"⭐ 顶刊", rss:"https://www.nature.com/neuro.rss" },
+  { n:"Nature Immunology",    g:"⭐ 顶刊", rss:"https://www.nature.com/ni.rss" },
+  { n:"Cell Stem Cell",       g:"⭐ 顶刊", rss:"https://www.cell.com/cell-stem-cell/current.rss" },
+  { n:"Cell Metabolism",      g:"⭐ 顶刊", rss:"https://www.cell.com/cell-metabolism/current.rss" },
+  { n:"Cancer Cell",          g:"⭐ 顶刊", rss:"https://www.cell.com/cancer-cell/current.rss" },
+  { n:"Immunity",             g:"⭐ 顶刊", rss:"https://www.cell.com/immunity/current.rss" },
+  { n:"Neuron",               g:"⭐ 顶刊", rss:"https://www.cell.com/neuron/current.rss" },
 ];
 
-// ── State ──────────────────────────────────────────────
-const BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
-let days = 3, articles = [], hiddenGroups = new Set(), groupCounts = {};
-const GROUPS = Object.keys(GROUP_CFG);
-const chunk = (a, n) => Array.from({length: Math.ceil(a.length/n)}, (_,i) => a.slice(i*n, i*n+n));
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+// ── PubMed 查询（Reviews + 其他 + NSR）─────────────────
+const PUBMED_QUERIES = [
+  '"Nat Rev Drug Discov"[Journal]','"Nat Rev Mol Cell Biol"[Journal]',
+  '"Nat Rev Cancer"[Journal]','"Nat Rev Immunol"[Journal]',
+  '"Nat Rev Genet"[Journal]','"Nat Rev Neurol"[Journal]',
+  '"Nat Rev Neurosci"[Journal]','"Nat Rev Endocrinol"[Journal]',
+  '"Natl Sci Rev"[Journal]',
+  '"Mol Cell"[Journal]','"Sci Transl Med"[Journal]','"Nat Commun"[Journal]',
+  '"Nat Protoc"[Journal]','"Nucleic Acids Res"[Journal]','"Sci Adv"[Journal]',
+  '"Sci Signal"[Journal]','"Sci Immunol"[Journal]','"Cell Host Microbe"[Journal]',
+  '"Cell Res"[Journal]','"Circulation"[Journal]','"Blood"[Journal]',
+  '"Biol Psychiatry"[Journal]','"Proc Natl Acad Sci U S A"[Journal]',
+  '"Elife"[Journal]','"Dev Cell"[Journal]','"Curr Biol"[Journal]',
+  '"Cell Rep"[Journal]','"Cell Death Dis"[Journal]','"Cell Death Differ"[Journal]',
+  '"Mov Disord"[Journal]','"Brief Bioinform"[Journal]','"Schizophr Bull"[Journal]',
+  '"Neuroimage"[Journal]','"FASEB J"[Journal]','"J Neurosci"[Journal]',
+  '"Glia"[Journal]','"Development"[Journal]','"Hum Brain Mapp"[Journal]',
+  '"STAR Protoc"[Journal]','"Cereb Cortex"[Journal]',
+  '"J Alzheimers Dis"[Journal]','"J Biol Chem"[Journal]',
+];
 
-// ── Lookup helper ──────────────────────────────────────
-function lookupJournal(pubmedSource) {
-  if (!pubmedSource) return null;
-  const key = pubmedSource.toLowerCase().trim();
-  if (JOURNAL_MAP[key]) return JOURNAL_MAP[key];
-  // partial match fallback
-  for (const [k, v] of Object.entries(JOURNAL_MAP)) {
-    if (key.startsWith(k) || k.startsWith(key)) return v;
-  }
+// PubMed source → 分组信息
+const JOURNAL_MAP = {
+  "natl sci rev":{"g":"⭐ 顶刊","n":"National Science Review"},
+  "national science review":{"g":"⭐ 顶刊","n":"National Science Review"},
+  "nat rev drug discov":{"g":"📖 Reviews","n":"Nat Rev Drug Discovery"},
+  "nat rev mol cell biol":{"g":"📖 Reviews","n":"Nat Rev Mol Cell Biol"},
+  "nat rev cancer":{"g":"📖 Reviews","n":"Nat Rev Cancer"},
+  "nat rev immunol":{"g":"📖 Reviews","n":"Nat Rev Immunology"},
+  "nat rev genet":{"g":"📖 Reviews","n":"Nat Rev Genetics"},
+  "nat rev neurol":{"g":"📖 Reviews","n":"Nat Rev Neurology"},
+  "nat rev neurosci":{"g":"📖 Reviews","n":"Nat Rev Neuroscience"},
+  "nat rev endocrinol":{"g":"📖 Reviews","n":"Nat Rev Endocrinology"},
+  "mol cell":{"g":"📄 其他","n":"Molecular Cell"},
+  "molecular cell":{"g":"📄 其他","n":"Molecular Cell"},
+  "sci transl med":{"g":"📄 其他","n":"Sci Transl Med"},
+  "nat commun":{"g":"📄 其他","n":"Nature Communications"},
+  "nature communications":{"g":"📄 其他","n":"Nature Communications"},
+  "nat protoc":{"g":"📄 其他","n":"Nature Protocols"},
+  "nucleic acids res":{"g":"📄 其他","n":"Nucleic Acids Res"},
+  "nucleic acids research":{"g":"📄 其他","n":"Nucleic Acids Res"},
+  "sci adv":{"g":"📄 其他","n":"Science Advances"},
+  "sci signal":{"g":"📄 其他","n":"Science Signaling"},
+  "sci immunol":{"g":"📄 其他","n":"Science Immunology"},
+  "science immunology":{"g":"📄 其他","n":"Science Immunology"},
+  "cell host microbe":{"g":"📄 其他","n":"Cell Host & Microbe"},
+  "cell res":{"g":"📄 其他","n":"Cell Research"},
+  "cell research":{"g":"📄 其他","n":"Cell Research"},
+  "circulation":{"g":"📄 其他","n":"Circulation"},
+  "blood":{"g":"📄 其他","n":"Blood"},
+  "biol psychiatry":{"g":"📄 其他","n":"Biological Psychiatry"},
+  "biological psychiatry":{"g":"📄 其他","n":"Biological Psychiatry"},
+  "proc natl acad sci u s a":{"g":"📄 其他","n":"PNAS"},
+  "elife":{"g":"📄 其他","n":"eLife"},
+  "dev cell":{"g":"📄 其他","n":"Developmental Cell"},
+  "developmental cell":{"g":"📄 其他","n":"Developmental Cell"},
+  "curr biol":{"g":"📄 其他","n":"Current Biology"},
+  "current biology":{"g":"📄 其他","n":"Current Biology"},
+  "cell rep":{"g":"📄 其他","n":"Cell Reports"},
+  "cell reports":{"g":"📄 其他","n":"Cell Reports"},
+  "cell death dis":{"g":"📄 其他","n":"Cell Death & Disease"},
+  "cell death differ":{"g":"📄 其他","n":"Cell Death & Differ."},
+  "mov disord":{"g":"📄 其他","n":"Movement Disorders"},
+  "movement disorders":{"g":"📄 其他","n":"Movement Disorders"},
+  "brief bioinform":{"g":"📄 其他","n":"Brief. Bioinformatics"},
+  "schizophr bull":{"g":"📄 其他","n":"Schizophrenia Bulletin"},
+  "neuroimage":{"g":"📄 其他","n":"Neuroimage"},
+  "faseb j":{"g":"📄 其他","n":"FASEB Journal"},
+  "j neurosci":{"g":"📄 其他","n":"J. Neuroscience"},
+  "glia":{"g":"📄 其他","n":"Glia"},
+  "development":{"g":"📄 其他","n":"Development"},
+  "hum brain mapp":{"g":"📄 其他","n":"Human Brain Mapping"},
+  "human brain mapping":{"g":"📄 其他","n":"Human Brain Mapping"},
+  "star protoc":{"g":"📄 其他","n":"STAR Protocols"},
+  "cereb cortex":{"g":"📄 其他","n":"Cerebral Cortex"},
+  "cerebral cortex":{"g":"📄 其他","n":"Cerebral Cortex"},
+  "j alzheimers dis":{"g":"📄 其他","n":"J. Alzheimer's Disease"},
+  "j biol chem":{"g":"📄 其他","n":"J. Biological Chemistry"},
+};
+
+function lookupJournal(src) {
+  if (!src) return null;
+  const k = src.toLowerCase().trim();
+  if (JOURNAL_MAP[k]) return JOURNAL_MAP[k];
+  for (const [key, val] of Object.entries(JOURNAL_MAP))
+    if (k.startsWith(key) || key.startsWith(k)) return val;
   return null;
+}
+
+// ── 工具函数 ───────────────────────────────────────────
+const BASE_PM = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
+const PROXIES = [
+  u => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u),
+  u => "https://corsproxy.io/?" + encodeURIComponent(u),
+];
+const chunk = (a,n) => Array.from({length:Math.ceil(a.length/n)},(_,i)=>a.slice(i*n,i*n+n));
+const sleep = ms => new Promise(r => setTimeout(r,ms));
+
+function getDateRange(n) {
+  const fmt = d => `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
+  const to = new Date(), from = new Date(to);
+  from.setDate(to.getDate() - n);
+  return { min:fmt(from), max:fmt(to), cutoff:from };
+}
+
+function fmtDate(d) {
+  if (!d || isNaN(d)) return "";
+  return d.getFullYear() + " " + d.toLocaleString("en",{month:"short"}) + " " + d.getDate();
+}
+
+// ── RSS 抓取 ───────────────────────────────────────────
+async function fetchWithProxy(url) {
+  for (const proxy of PROXIES) {
+    try {
+      const res = await fetch(proxy(url), { signal: AbortSignal.timeout(12000) });
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (text.includes("<item") || text.includes("<entry")) return text;
+    } catch(e) { continue; }
+  }
+  throw new Error("proxy failed");
+}
+
+function getEl(item, tag) {
+  return item.querySelector(tag)?.textContent?.trim() || "";
+}
+function getDCEl(item, tag) {
+  return [...item.children].find(c => c.localName === tag)?.textContent?.trim() || "";
+}
+
+async function fetchOneRSS(journal, cutoff) {
+  const text = await fetchWithProxy(journal.rss);
+  const xml = new DOMParser().parseFromString(text, "application/xml");
+  if (xml.querySelector("parsererror")) throw new Error("xml error");
+
+  const gcfg = GROUP_CFG[journal.g];
+  return [...xml.querySelectorAll("item")].map(item => {
+    const title = getEl(item,"title");
+    const link  = getEl(item,"link") || getEl(item,"guid");
+    const pubDateStr = getEl(item,"pubDate") || getDCEl(item,"date");
+    const author = getEl(item,"author") || getDCEl(item,"creator");
+    const dateObj = pubDateStr ? new Date(pubDateStr) : null;
+    if (!title || !link) return null;
+    if (dateObj && dateObj < cutoff) return null;
+    return {
+      id: link, title, displayJournal: journal.n, group: journal.g,
+      color: gcfg.c, bg: gcfg.bg,
+      authors: author.replace(/^.*?\(|\)$/g,"").trim(),
+      date: fmtDate(dateObj), rawDate: dateObj || new Date(0),
+      url: link, isRSS: true
+    };
+  }).filter(Boolean);
+}
+
+async function fetchAllRSS(days) {
+  const { cutoff } = getDateRange(days);
+  const results = await Promise.allSettled(RSS_JOURNALS.map(j => fetchOneRSS(j, cutoff)));
+  const articles = [], failed = [];
+  results.forEach((r,i) => {
+    if (r.status === "fulfilled") articles.push(...r.value);
+    else failed.push(RSS_JOURNALS[i].n);
+  });
+  return { articles, failed };
+}
+
+// ── PubMed 抓取 ────────────────────────────────────────
+async function fetchPubMed(days) {
+  const { min, max, cutoff } = getDateRange(days);
+  const batches = chunk(PUBMED_QUERIES, 10);
+  const allIds = [];
+
+  for (let i = 0; i < batches.length; i++) {
+    setStatus(`PubMed 查询中 ${Math.min((i+1)*10, PUBMED_QUERIES.length)} / ${PUBMED_QUERIES.length}...`);
+    const term = batches[i].join(" OR ");
+    const url = BASE_PM + "esearch.fcgi?db=pubmed&term=" + encodeURIComponent(term)
+      + "&datetype=edat&mindate=" + min + "&maxdate=" + max + "&retmax=500&retmode=json";
+    const res = await fetch(url);
+    const data = await res.json();
+    allIds.push(...(data.esearchresult?.idlist || []));
+    if (i < batches.length - 1) await sleep(350);
+  }
+
+  const uniqueIds = [...new Set(allIds)];
+  if (!uniqueIds.length) return [];
+  setStatus(`PubMed 获取 ${uniqueIds.length} 篇详情...`);
+
+  const merged = {};
+  for (const idBatch of chunk(uniqueIds, 200)) {
+    const res = await fetch(BASE_PM + "esummary.fcgi?db=pubmed&id=" + idBatch.join(",") + "&retmode=json");
+    const data = await res.json();
+    Object.assign(merged, data.result || {});
+    await sleep(350);
+  }
+
+  return uniqueIds.map(id => merged[id]).filter(a => a && a.uid && a.title && a.title !== "Unknown title")
+    .map(a => {
+      const meta = lookupJournal(a.source) || { g:"📄 其他", n: a.source || "Unknown" };
+      const gcfg = GROUP_CFG[meta.g] || GROUP_CFG["📄 其他"];
+      const dateObj = new Date(a.epubdate || a.pubdate || 0);
+      if (dateObj < new Date(cutoff.getTime() - 14*864e5)) return null; // 多14天宽容
+      return {
+        id: "pm_" + a.uid, title: a.title, displayJournal: meta.n, group: meta.g,
+        color: gcfg.c, bg: gcfg.bg,
+        authors: a.authors?.length ? a.authors.slice(0,3).map(x=>x.name).join(", ")+(a.authors.length>3?" et al.":"") : "",
+        date: fmtDate(isNaN(dateObj) ? null : dateObj),
+        rawDate: isNaN(dateObj) ? new Date(0) : dateObj,
+        url: "https://pubmed.ncbi.nlm.nih.gov/" + a.uid + "/",
+        isRSS: false
+      };
+    }).filter(Boolean);
+}
+
+// ── 状态显示 ───────────────────────────────────────────
+function setStatus(msg, isErr) {
+  const el = document.getElementById("status");
+  if (!msg) { el.style.display = "none"; return; }
+  el.style.display = "flex";
+  el.className = isErr ? "err" : "";
+  el.innerHTML = isErr ? `<span>⚠️ ${msg}</span>`
+    : `<div class="spinner"></div><span>${msg}</span>`;
+}
+
+// ── State ──────────────────────────────────────────────
+let days = 3, articles = [], hiddenGroups = new Set(), groupCounts = {};
+
+// ── 主抓取流程 ─────────────────────────────────────────
+async function fetchArticles() {
+  const btn = document.getElementById("refresh-btn");
+  btn.disabled = true; articles = []; groupCounts = {};
+  setStatus("⚡ 正在抓取顶刊 RSS 并查询 PubMed...");
+
+  try {
+    // 两路并行
+    const [rssResult, pmArticles] = await Promise.all([
+      fetchAllRSS(days),
+      fetchPubMed(days).catch(e => { console.error(e); return []; })
+    ]);
+
+    const { articles: rssArticles, failed } = rssResult;
+
+    // 合并去重（以 URL 为 key）
+    const seen = new Set();
+    articles = [...rssArticles, ...pmArticles]
+      .filter(a => { if (seen.has(a.url)) return false; seen.add(a.url); return true; })
+      .sort((a,b) => b.rawDate - a.rawDate);
+
+    groupCounts = {};
+    articles.forEach(a => { groupCounts[a.group] = (groupCounts[a.group]||0)+1; });
+    updateCounts();
+
+    const now = new Date();
+    document.getElementById("updated").textContent =
+      "· " + now.toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"}) + " 更新";
+
+    if (failed.length) {
+      setStatus("⚠️ RSS 加载失败（已用 PubMed 兜底）：" + failed.join("、"), true);
+    } else {
+      setStatus("");
+    }
+  } catch(e) {
+    setStatus("加载失败：" + e.message, true);
+  }
+
+  renderArticles();
+  btn.disabled = false;
 }
 
 // ── Sidebar ────────────────────────────────────────────
@@ -297,20 +399,18 @@ function buildSidebar() {
   GROUPS.forEach(g => {
     const {c} = GROUP_CFG[g];
     const on = !hiddenGroups.has(g);
-    const wrap = document.createElement("div");
-    wrap.className = "sb-group";
-    wrap.innerHTML = `
-      <div class="sb-group-header">${g}</div>
-      <div class="sb-item" id="sb-${CSS.escape(g)}" onclick="toggleGroup('${g.replace(/'/g,"\\'")}')">
+    const div = document.createElement("div");
+    div.innerHTML = `<div class="sb-group-header">${g}</div>
+      <div class="sb-item" id="sb-${CSS.escape(g)}" onclick="toggleGroup(${JSON.stringify(g)})">
         <div class="sb-check ${on?"on":""}" style="${on?`background:${c};border-color:${c}`:""}"></div>
         <span class="sb-label">全部</span>
         <span class="sb-count" id="cnt-${CSS.escape(g)}">${groupCounts[g]||""}</span>
       </div>`;
-    el.appendChild(wrap);
+    el.appendChild(div);
   });
 }
 
-function refreshSidebarItem(g) {
+function refreshSbItem(g) {
   const {c} = GROUP_CFG[g];
   const on = !hiddenGroups.has(g);
   const item = document.getElementById("sb-" + CSS.escape(g));
@@ -330,104 +430,18 @@ function updateCounts() {
 
 function toggleGroup(g) {
   hiddenGroups.has(g) ? hiddenGroups.delete(g) : hiddenGroups.add(g);
-  refreshSidebarItem(g);
-  renderArticles();
+  refreshSbItem(g); renderArticles();
 }
+function selectAll() { hiddenGroups.clear(); GROUPS.forEach(g => refreshSbItem(g)); renderArticles(); }
+function clearAll()  { GROUPS.forEach(g => { hiddenGroups.add(g); refreshSbItem(g); }); renderArticles(); }
 
-function selectAll() { hiddenGroups.clear(); GROUPS.forEach(g => refreshSidebarItem(g)); renderArticles(); }
-function clearAll()  { GROUPS.forEach(g => { hiddenGroups.add(g); refreshSidebarItem(g); }); renderArticles(); }
-
-// ── Days ───────────────────────────────────────────────
 function setDays(d) {
   days = d;
-  document.querySelectorAll(".day-btn").forEach(b => b.classList.toggle("active", +b.dataset.d === d));
+  document.querySelectorAll(".day-btn").forEach(b => b.classList.toggle("active", +b.dataset.d===d));
   fetchArticles();
 }
 
-// ── Fetch ──────────────────────────────────────────────
-function setStatus(msg, isErr) {
-  const el = document.getElementById("status");
-  if (!msg) { el.style.display = "none"; return; }
-  el.style.display = "flex";
-  el.className = isErr ? "err" : "";
-  el.innerHTML = isErr
-    ? `<span>⚠️ ${msg}</span>`
-    : `<div class="spinner"></div><span>${msg}</span>`;
-}
-
-async function fetchArticles() {
-  const btn = document.getElementById("refresh-btn");
-  btn.disabled = true;
-  articles = []; groupCounts = {};
-  setStatus("正在查询 PubMed...");
-
-  try {
-    const batches = chunk(SEARCH_QUERIES, 10);
-    const allIds = [];
-
-    for (let i = 0; i < batches.length; i++) {
-      setStatus(`查询中 ${Math.min((i+1)*10, SEARCH_QUERIES.length)} / ${SEARCH_QUERIES.length} 个期刊...`);
-      const term = batches[i].join(" OR ");
-      const url = BASE + "esearch.fcgi?db=pubmed&term=" + encodeURIComponent(term)
-        + "&datetype=edat&reldate=" + days + "&retmax=500&retmode=json";
-      const res = await fetch(url);
-      const data = await res.json();
-      allIds.push(...(data.esearchresult?.idlist || []));
-      if (i < batches.length - 1) await sleep(340);
-    }
-
-    const uniqueIds = [...new Set(allIds)];
-    if (uniqueIds.length === 0) {
-      renderArticles(); setStatus(""); btn.disabled = false; return;
-    }
-
-    setStatus(`获取 ${uniqueIds.length} 篇文章详情...`);
-    const idBatches = chunk(uniqueIds, 200);
-    const merged = {};
-    for (let i = 0; i < idBatches.length; i++) {
-      const res = await fetch(BASE + "esummary.fcgi?db=pubmed&id=" + idBatches[i].join(",") + "&retmode=json");
-      const data = await res.json();
-      Object.assign(merged, data.result || {});
-      if (i < idBatches.length - 1) await sleep(340);
-    }
-
-    articles = uniqueIds
-      .map(id => merged[id])
-      .filter(a => a && a.uid && a.title && a.title !== "Unknown title")
-      .map(a => {
-        const meta = lookupJournal(a.source) || { g:"📄 其他", n: a.source || "Unknown" };
-        const gcfg = GROUP_CFG[meta.g] || GROUP_CFG["📄 其他"];
-        return {
-          id: a.uid,
-          title: a.title,
-          displayJournal: meta.n,
-          group: meta.g,
-          color: gcfg.c,
-          bg: gcfg.bg,
-          authors: a.authors?.length
-            ? a.authors.slice(0,3).map(x => x.name).join(", ") + (a.authors.length > 3 ? " et al." : "")
-            : "",
-          date: a.epubdate || a.pubdate || "",
-          url: "https://pubmed.ncbi.nlm.nih.gov/" + a.uid + "/",
-        };
-      })
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    groupCounts = {};
-    articles.forEach(a => { groupCounts[a.group] = (groupCounts[a.group] || 0) + 1; });
-    updateCounts();
-    document.getElementById("updated").textContent =
-      "· 更新 " + new Date().toLocaleTimeString("zh-CN", {hour:"2-digit", minute:"2-digit"});
-    setStatus("");
-  } catch(e) {
-    setStatus("加载失败：" + e.message, true);
-  }
-
-  renderArticles();
-  btn.disabled = false;
-}
-
-// ── Render ─────────────────────────────────────────────
+// ── 渲染文章 ───────────────────────────────────────────
 function renderArticles() {
   const q = document.getElementById("search-box").value.trim().toLowerCase();
   const list = document.getElementById("article-list");
@@ -442,12 +456,14 @@ function renderArticles() {
     return true;
   });
 
-  meta.textContent = filtered.length ? `共 ${filtered.length} 篇文章` : "";
-  empty.style.display = filtered.length === 0 ? "flex" : "none";
+  meta.textContent = filtered.length
+    ? `共 ${filtered.length} 篇文章（⚡ RSS 实时 + PubMed）` : "";
+  empty.style.display = filtered.length===0 ? "flex" : "none";
   list.innerHTML = filtered.map(a => `
     <div class="article-card">
       <a class="article-title" href="${a.url}" target="_blank" rel="noopener">${a.title}</a>
       <div class="article-meta">
+        ${a.isRSS ? '<span class="rss-dot" title="实时 RSS">⚡</span>' : ""}
         <span class="journal-badge" style="background:${a.bg};color:${a.color}">${a.displayJournal}</span>
         <span class="article-authors">${a.authors}</span>
         <span class="article-date">${a.date}</span>
@@ -455,7 +471,7 @@ function renderArticles() {
     </div>`).join("");
 }
 
-// ── Init ───────────────────────────────────────────────
+// ── 初始化 ─────────────────────────────────────────────
 buildSidebar();
 fetchArticles();
 </script>
