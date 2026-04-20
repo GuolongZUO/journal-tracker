@@ -125,8 +125,14 @@ const RSS_JOURNALS = [
   { n:"Neuron",               g:"⭐ 顶刊", rss:"https://www.cell.com/neuron/current.rss" },
 ];
 
-// ── PubMed 查询（Reviews + 其他 + NSR）─────────────────
+// ── PubMed 查询（全部期刊，顶刊作为 RSS 失败时的兜底）──
 const PUBMED_QUERIES = [
+  '"Nature"[Journal]','"Science"[Journal]','"Cell"[Journal]',
+  '"N Engl J Med"[Journal]','"Lancet"[Journal]',
+  '"Nat Med"[Journal]','"Nat Biotechnol"[Journal]','"Nat Genet"[Journal]',
+  '"Nat Methods"[Journal]','"Nat Cell Biol"[Journal]','"Nat Neurosci"[Journal]',
+  '"Nat Immunol"[Journal]','"Cell Stem Cell"[Journal]','"Cell Metab"[Journal]',
+  '"Cancer Cell"[Journal]','"Immunity"[Journal]','"Neuron"[Journal]',
   '"Nat Rev Drug Discov"[Journal]','"Nat Rev Mol Cell Biol"[Journal]',
   '"Nat Rev Cancer"[Journal]','"Nat Rev Immunol"[Journal]',
   '"Nat Rev Genet"[Journal]','"Nat Rev Neurol"[Journal]',
@@ -146,8 +152,34 @@ const PUBMED_QUERIES = [
   '"J Alzheimers Dis"[Journal]','"J Biol Chem"[Journal]',
 ];
 
-// PubMed source → 分组信息
+// PubMed source → 分组信息（包含顶刊，用于 RSS 失败时兜底）
 const JOURNAL_MAP = {
+  "nature":{"g":"⭐ 顶刊","n":"Nature"},
+  "science":{"g":"⭐ 顶刊","n":"Science"},
+  "cell":{"g":"⭐ 顶刊","n":"Cell"},
+  "n engl j med":{"g":"⭐ 顶刊","n":"NEJM"},
+  "new england journal of medicine":{"g":"⭐ 顶刊","n":"NEJM"},
+  "lancet":{"g":"⭐ 顶刊","n":"Lancet"},
+  "nat med":{"g":"⭐ 顶刊","n":"Nature Medicine"},
+  "nature medicine":{"g":"⭐ 顶刊","n":"Nature Medicine"},
+  "nat biotechnol":{"g":"⭐ 顶刊","n":"Nature Biotechnology"},
+  "nature biotechnology":{"g":"⭐ 顶刊","n":"Nature Biotechnology"},
+  "nat genet":{"g":"⭐ 顶刊","n":"Nature Genetics"},
+  "nature genetics":{"g":"⭐ 顶刊","n":"Nature Genetics"},
+  "nat methods":{"g":"⭐ 顶刊","n":"Nature Methods"},
+  "nature methods":{"g":"⭐ 顶刊","n":"Nature Methods"},
+  "nat cell biol":{"g":"⭐ 顶刊","n":"Nature Cell Biology"},
+  "nature cell biology":{"g":"⭐ 顶刊","n":"Nature Cell Biology"},
+  "nat neurosci":{"g":"⭐ 顶刊","n":"Nature Neuroscience"},
+  "nature neuroscience":{"g":"⭐ 顶刊","n":"Nature Neuroscience"},
+  "nat immunol":{"g":"⭐ 顶刊","n":"Nature Immunology"},
+  "nature immunology":{"g":"⭐ 顶刊","n":"Nature Immunology"},
+  "cell stem cell":{"g":"⭐ 顶刊","n":"Cell Stem Cell"},
+  "cell metab":{"g":"⭐ 顶刊","n":"Cell Metabolism"},
+  "cell metabolism":{"g":"⭐ 顶刊","n":"Cell Metabolism"},
+  "cancer cell":{"g":"⭐ 顶刊","n":"Cancer Cell"},
+  "immunity":{"g":"⭐ 顶刊","n":"Immunity"},
+  "neuron":{"g":"⭐ 顶刊","n":"Neuron"},
   "natl sci rev":{"g":"⭐ 顶刊","n":"National Science Review"},
   "national science review":{"g":"⭐ 顶刊","n":"National Science Review"},
   "nat rev drug discov":{"g":"📖 Reviews","n":"Nat Rev Drug Discovery"},
